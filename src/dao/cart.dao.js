@@ -28,17 +28,26 @@ const addProductToCart = async (cid, pid) => {
 };
 
 const deleteProductInCart = async (cid, pid) => {
-  const cart = await cartModel.findById(cid);
-  const productsFilter = cart.products.filter(
-    (prod) => prod.product.toString() == pid
-  );
-  const cartResponse = await cartModel.findByIdAndUpdate(
-    cid,
-    { $set: { products: productsFilter } },
-    { new: true }
-  );
-  return cartResponse;
+  try {
+    const cart = await cartModel.findById(cid);
+    if (!cart) {
+      throw new Error('Cart not found');
+    }
+    const productsFilter = cart.products.filter(
+      (prod) => prod.product.id.toString() !== pid
+    );
+    const cartResponse = await cartModel.findByIdAndUpdate(
+      cid,
+      { $set: { products: productsFilter } },
+      { new: true }
+    );
+    return cartResponse;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
+
 
 const updateQuantityProductInCart = async (cid, pid, quantity) => {
   const cart = await cartModel.findOneAndUpdate(
