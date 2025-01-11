@@ -16,7 +16,7 @@ export function initializePassport() {
       },
       async (req, email, password, done) => {
         try {
-          const { firstName, lastName, age, role } = req.body;
+          const { firstName, lastName, age, role,carts } = req.body;
 
           if (!firstName || !lastName || !age) {
             return done(null, false, { message: "Missing fields" });
@@ -29,6 +29,7 @@ export function initializePassport() {
             age,
             password,
             role,
+            carts
           });
 
           return done(null, user);
