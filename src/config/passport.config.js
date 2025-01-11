@@ -3,7 +3,7 @@ import { Strategy as JWTStrategy, ExtractJwt } from "passport-jwt";
 import { Strategy as LocalStrategy } from "passport-local";
 
 import { createToken, SECRET } from "../utils/jwt.utils.js";
-import { userModel } from "../models/user.model.js";
+import { userModel } from "../dao/models/user.model.js";
 import { comparePassword } from "../utils/password.utils.js";
 
 export function initializePassport() {
@@ -27,7 +27,7 @@ export function initializePassport() {
             last_name: lastName,
             email,
             age,
-            password,
+            password, 
             role,
             cartId
           }); 
