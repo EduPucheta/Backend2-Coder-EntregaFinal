@@ -9,7 +9,6 @@
 
 ## Como correr el proyecto de forma local:
 
-1. Correr "npm install"
-2. Correr "npm run dev"
-3. Hacer request al puerto 8000
+1. Correr "npm install" en la terminal.
+2. Correr "npm run dev" en la terminal.
 4. Actuliazar las variables de enterno con las credenciales correctas.
