@@ -23,16 +23,11 @@ const userSchema = new Schema({
     type: String,
     required: true,
   },
-
-  carts: {
-    type: [
-      {
-        cartId: { type: Schema.Types.ObjectId, ref: "products" },
-      },
-    ],
-    default: [],
-  },
-
+  cartId: {
+     type: Schema.Types.ObjectId,
+     ref: "carts",
+   }
+  ,
   role: {
     type: String,
     required: true,
