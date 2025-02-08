@@ -1,4 +1,4 @@
-# Prentrega Final Curso de Backend 2
+# Entrega Final Curso de Backend 2
 
 ## Tecnologías utilizadas:
 
