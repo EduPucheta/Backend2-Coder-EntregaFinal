@@ -25,7 +25,7 @@ A continuación se listan los endpoint correspondientes, junto con una breve des
 | Endpoint    | Http Req | Description                            | Auth | Body                                                                                                    |
 | ----------- | -------- | -------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------- |
 | `/register` | POST     | Registrar nuevo usuario                | No   | `{ "firstName": "Edu","lastName": "Gutierrez", "email": "Edu14@gmail.com", "age": 31,"password": "123457904", "role": "user"}` |
-| `/login`    | POST     | Loguear usuario registrado             | No   | `{ "email": "testing@mail.com", "password" : "12345678" }`                                              |
+| `/login`    | POST     | Loguear usuario registrado             | No   | `{"email": "Edu14@gmail.com","password": "123457904"}`                                              |
 
 
 ### `/api/products`
@@ -33,10 +33,10 @@ A continuación se listan los endpoint correspondientes, junto con una breve des
 | Endpoint | Http Req | Description                   | Auth | Body                                                                                                                                                                                                    |
 | -------- | -------- | ----------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `/`      | GET      | Obtener todos los productos   | No   | -                                                                                                                                                                                                       |
-| `/:id`   | GET      | Obtener un producto por su Id | No   | -                                                                                                                                                                                                       |
-| `/`      | POST     | Guardar un producto           | Sí   | `{ "title": "Blackmore", "price": 359, "description": "Ut malesuada vitae neque sit amet congue. Suspendisse potenti. Mauris …", "url": "guitarra_12_xzmjnz", "stock": 8, "category": "instrumentos" }` |
-| `/:id`   | PUT      | Actualizar un producto        | Sí   | `{ "price": 389 }`                                                                                                                                                                                      |
-| `/:id`   | DELETE   | Eliminar un producto          | Sí   | -                                                                                                                                                                                                       |
+| `/:pid`   | GET      | Obtener un producto por su Id | No   | -                                                                                                                                                                                                       |
+| `/`      | POST     | Guardar un producto           | "admin"   | `{"title": "Producto 7","description": "Este es otro producto mas","price": 570,"thumbnail":[],"code": "ASDF1245","stock": 42,"category":Electrónica"}` |
+| `/:pid`   | PUT      | Actualizar un producto        | "admin"  | `{ "price": 389 }`                                                                                                                                                                                      |
+| `/:pid`   | DELETE   | Eliminar un producto          | "admin"  | -                                                                                                                                                                                                       |
 
 ### `/api/cart`
 
