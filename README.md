@@ -22,25 +22,25 @@ A continuación se listan los endpoint correspondientes, junto con una breve des
 
 ### `/api/auth`
 
-| Endpoint    | Http Req | Description                            | Auth | Body                                                                                                    |
+| Endpoint    | Http Req | Description                            | Role| Body                                                                                                    |
 | ----------- | -------- | -------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------- |
-| `/register` | POST     | Registrar nuevo usuario                | No   | `{ "firstName": "Edu","lastName": "Gutierrez", "email": "Edu14@gmail.com", "age": 31,"password": "123457904", "role": "user"}` |
-| `/login`    | POST     | Loguear usuario registrado             | No   | `{"email": "Edu14@gmail.com","password": "123457904"}`                                              |
+| `/register` | POST     | Registrar nuevo usuario                | -   | `{ "firstName": "Edu","lastName": "Gutierrez", "email": "Edu14@gmail.com", "age": 31,"password": "123457904", "role": "user"}` |
+| `/login`    | POST     | Loguear usuario registrado             | -   | `{"email": "Edu14@gmail.com","password": "123457904"}`                                              |
 
 
 ### `/api/products`
 
-| Endpoint | Http Req | Description                   | Auth | Body                                                                                                                                                                                                    |
+| Endpoint | Http Req | Description                   | Role| Body                                                                                                                                                                                                    |
 | -------- | -------- | ----------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `/`      | GET      | Obtener todos los productos   | No   | -                                                                                                                                                                                                       |
-| `/:pid`   | GET      | Obtener un producto por su Id | No   | -                                                                                                                                                                                                       |
+| `/`      | GET      | Obtener todos los productos   | -   | -                                                                                                                                                                                                       |
+| `/:pid`   | GET      | Obtener un producto por su Id | -   | -                                                                                                                                                                                                       |
 | `/`      | POST     | Guardar un producto           | "admin"   | `{"title": "Producto 7","description": "Este es otro producto mas","price": 570,"thumbnail":[],"code": "ASDF1245","stock": 42,"category":Electrónica"}` |
 | `/:pid`   | PUT      | Actualizar un producto        | "admin"  | `{ "price": 389 }`                                                                                                                                                                                      |
 | `/:pid`   | DELETE   | Eliminar un producto          | "admin"  | -                                                                                                                                                                                                       |
 
 ### `/api/cart`
 
-| Endpoint              | Http Req | Description                                | Auth | Body                                                   |
+| Endpoint              | Http Req | Description                                | Role| Body                                                   |
 | --------------------- | -------- | ------------------------------------------ | ---- | ------------------------------------------------------ |
 | `/create/:userId`     | GET      | Crear un carrito                           | Sí   | -                                                      |
 | `/:userId`            | GET      | Obtener carrito de un usuario              | Sí   | -                                                      |
