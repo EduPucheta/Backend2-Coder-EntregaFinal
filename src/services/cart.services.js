@@ -1,4 +1,5 @@
 import cartRepository from "../persistence/mongoDB/cart.repository.js";
+import productRepository from "../persistence/mongoDB/product.repository.js";
 
 const createCart = async () => {
   return await cartRepository.create();
