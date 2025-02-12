@@ -12,7 +12,8 @@ router.get("/current", async (req, res) => {
     message: "Current user",
     token: req.cookies.token,
     user: UserFromToken,
-  });
+  }); 
 });
 
 export default router;
+ 

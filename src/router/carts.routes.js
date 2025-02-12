@@ -15,15 +15,15 @@ router.post("/", cartsControllers.createCart);
 
 router.get("/:cid",cartsControllers.getCartById);
 
-router.post("/:cid/product/:pid", passportCall("jwt"), authorization("user"), isUserCart, checkProductAndCart, cartsControllers.addProductToCart);
+router.post("/:cid/product/:pid", passportCall("jwt"), authorization("user"), checkProductAndCart, cartsControllers.addProductToCart);
 
-router.delete("/:cid/product/:pid", passportCall("jwt"),authorization("user"), checkProductAndCart, cartsControllers.deleteProductToCart );
+router.delete("/:cid/product/:pid", passportCall("jwt"),authorization("user"), checkProductAndCart, cartsControllers.deleteProductToCart ); 
 
 router.put("/:cid/product/:pid", passportCall("jwt"), authorization("user"), checkProductAndCart, cartsControllers.updateQuantityProductInCart );
 
 router.delete("/:cid", passportCall("jwt"), authorization("user"), cartsControllers.clearProductsToCart);
 
-router.get("/:cid/purchase", passportCall("jwt"), authorization("user"), cartsControllers.purchaseCart)
+router.post("/:cid/purchase", passportCall("jwt"), authorization("user"), cartsControllers.purchaseCart)
 
 export default router;
  

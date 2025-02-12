@@ -17,7 +17,7 @@ router.post("/register", passportCall("register"), async (req, res) => {
 });
 
 router.post("/login", passportCall("login"), async (req, res) => {
-  try {
+  try { 
     const token = createToken(req.user);
     res.cookie("token", token, {httpOnly: true});
 
