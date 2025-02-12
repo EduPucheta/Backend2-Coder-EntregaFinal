@@ -24,11 +24,16 @@ A continuación se listan los endpoint correspondientes, junto con una breve des
 
 | Endpoint    | Http Req | Description                            | Auth | Body                                                                                                    |
 | ----------- | -------- | -------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------- |
-| `/register` | POST     | Registrar nuevo usuario                | No   | `{ "email": "testing@mail.com", "password" : "12345678", "phone": 11236856546, "username": "testing" }` |
+| `/register` | POST     | Registrar nuevo usuario                | No   | `{
+  "firstName": "Edu",
+  "lastName": "Gutierrez",
+  "email": "Edu14@gmail.com",
+  "age": 31,
+  "password": "123457904",
+  "role": "user"
+}` |
 | `/login`    | POST     | Loguear usuario registrado             | No   | `{ "email": "testing@mail.com", "password" : "12345678" }`                                              |
-| `/all`      | GET      | Obtener todos los usuarios             | No   | -                                                                                                       |
-| `/:userId`  | DELETE   | Eliminar un usuario                    | No   | -                                                                                                       |
-| `/`         | GET      | Authorizar un usuario con Bearer Token | Sí   | -                                                                                                       |
+
 
 ### `/api/products`
 
