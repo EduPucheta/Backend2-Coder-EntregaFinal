@@ -24,14 +24,7 @@ A continuación se listan los endpoint correspondientes, junto con una breve des
 
 | Endpoint    | Http Req | Description                            | Auth | Body                                                                                                    |
 | ----------- | -------- | -------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------- |
-| `/register` | POST     | Registrar nuevo usuario                | No   | `{
-  "firstName": "Edu",
-  "lastName": "Gutierrez",
-  "email": "Edu14@gmail.com",
-  "age": 31,
-  "password": "123457904",
-  "role": "user"
-}` |
+| `/register` | POST     | Registrar nuevo usuario                | No   | `{ "firstName": "Edu","lastName": "Gutierrez", "email": "Edu14@gmail.com", "age": 31,"password": "123457904", "role": "user"}` |
 | `/login`    | POST     | Loguear usuario registrado             | No   | `{ "email": "testing@mail.com", "password" : "12345678" }`                                              |
 
 
