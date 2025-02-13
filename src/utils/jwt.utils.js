@@ -4,7 +4,7 @@ export const SECRET = "mysecret";
 
 export function createToken(payload) {
   return jwt.sign(payload, SECRET, {
-    expiresIn: "10m",
+    expiresIn: "30m",
   });
 }
 

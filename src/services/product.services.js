@@ -1,5 +1,5 @@
 import productRepository from "../persistence/mongoDB/product.repository.js";
-import { respProductDto } from "../dto/product.dto.js";
+import { RespProductDto  } from "../dto/product.dto.js";
 
 const getAllProducts = async (query, options) => {
   return await productRepository.getAll(query, options);
@@ -7,7 +7,7 @@ const getAllProducts = async (query, options) => {
 
 const getProductById = async (pid) => {
   const product = await productRepository.getById(pid);
-  const productResponse = respProductDto(product);
+  const productResponse = new RespProductDto(product);
   return productResponse;
 };
 
@@ -19,7 +19,7 @@ const createProduct = async (productData) => {
   return await productRepository.create(productData);
 };
 
-const deleteProduct = async (pid) => {
+const deleteProduct = async (pid) => { 
   return await productRepository.deleteOne(pid);
 };
 

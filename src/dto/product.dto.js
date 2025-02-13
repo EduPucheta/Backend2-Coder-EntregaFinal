@@ -1,10 +1,8 @@
-
-
-export const respProductDto = (product) => {
-    return {
-        title: product.title,
-        description: product.description,
-        price: product.price,
-        stock: product.stock,
-    };
-};
+export class RespProductDto {
+    constructor(product) {
+        this.title = product.title;
+        this.description = product.description;
+        this.price = product.price;
+        this.stock = product.stock;
+    }
+}

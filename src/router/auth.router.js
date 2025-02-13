@@ -12,7 +12,7 @@ router.post(
     res.json(req.user);
   }
 );
-
+ 
 router.post(
   "/login",
   passport.authenticate("login", { session: false }),
