@@ -55,4 +55,11 @@ A continuación se listan los endpoint correspondientes, junto con una breve des
 
 | Endpoint              | Http Req | Description                                | Role| Body                                                   |
 | --------------------- | -------- | ------------------------------------------ | ---- | ------------------------------------------------------ |
-| `/current`     |    GET   | Recibe el token del usuario logueado                | -   | -                                                      |
+| `/current`     |    GET   | Devuelve el token del usuario logueado                | -   | -                                                      |
+
+
+### `/api/users`
+
+| Endpoint              | Http Req | Description                                | Role| Body                                                   |
+| --------------------- | -------- | ------------------------------------------ | ---- | ------------------------------------------------------ |
+| `/`     |    GET   | Devuelve la información de todos los usuarios                | -   | -                                                      |
