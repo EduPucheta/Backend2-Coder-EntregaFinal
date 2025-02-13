@@ -5,7 +5,7 @@ import productRepository from "../persistence/mongoDB/product.repository.js";
 import cartsControllers from "../controllers/carts.controllers.js";
 import { checkProductAndCart } from "../middlewares/checkProductAndCart.middleware.js";
 import { authorization } from "../middlewares/authorization.middleware.js";
-import { isUserCart } from "../middlewares/isUserCart.middleware.js";
+
 import { passportCall } from "../middlewares/passport.middleware.js";
 
 
