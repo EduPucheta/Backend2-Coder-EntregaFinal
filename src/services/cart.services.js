@@ -29,22 +29,26 @@ const purchaseCart = async (cid) => {
   const cart = await cartRepository.getById(cid);
   let total = 0;
   const productsWithOutStock = [];
+  const updatedProducts = [];
 
   for (const productCart of cart.products) {
-      const product = await productRepository.getById(productCart.product);
-
-      if (product.stock >= productCart.quantity) {
-          total += product.price * productCart.quantity;
-          await productRepository.update(product._id, {stock: product.stock - productCart.quantity})
-      } else {
-          productsWithOutStock.push(productCart);
-      }
-
-      await cartRepository.update(cid, { products: productsWithOutStock });
+    const product = await productRepository.getById(productCart.product);
+  
+    if (product.stock >= productCart.quantity) {
+      total += product.price * productCart.quantity;
+      await productRepository.update(product._id, { stock: product.stock - productCart.quantity });
+    } else {
+      productsWithOutStock.push(productCart.product._id);
+      updatedProducts.push({ product: productCart.product, quantity: productCart.quantity }); // Correct structure
+    }
   }
-
-  return total;
+  
+  // Ensure correct structure when updating the cart
+  await cartRepository.update(cid, { products: updatedProducts });
+  
+  return { total, productsWithOutStock };
 };
+
 
 
 export default {

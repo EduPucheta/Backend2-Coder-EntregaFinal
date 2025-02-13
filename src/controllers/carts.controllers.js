@@ -78,10 +78,13 @@ const purchaseCart = async (req = request, res = response) => {
       const cart = await cartServices.getCartById(cid);
       if (!cart) return res.status(404).json({ status: "Error", msg: "Carrito no encontrado" });
 
-      const total = await cartServices.purchaseCart(cid);
+      const { total } = await cartServices.purchaseCart(cid);
+      const {productsWithOutStock} = await cartServices.purchaseCart(cid);
+
+
       const ticket = await ticketServices.createTicket(req.user.email, total);
 
-      res.status(200).json({ status: "success", ticket });
+      res.status(200).json({ status: "success", ticket, "ID of Products without stock (not purchased)": productsWithOutStock });
   } catch (error) {
       console.log(error);
       res.status(500).json({ status: "Error", msg: "Error interno del servidor" });
