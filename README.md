@@ -18,14 +18,12 @@
 
 A continuación se listan los endpoint correspondientes, junto con una breve descripción, y en caso de corresponder, un ejemplo del body que reciben. También se indica en la columna Role que si el usuario debe ser user o admin para ejecutar determinadas acciones.
 
-> Nota: Para probar la aplicación con POSTMAN, se debe comentar la línea que habilita el acceso mediante CORS
-
 ### `/api/auth`
 
 | Endpoint    | Http Req | Description                            | Role| Body                                                                                                    |
 | ----------- | -------- | -------------------------------------- | ---- | ------------------------------------------------------------------------------------------------------- |
 | `/register` | POST     | Registrar nuevo usuario                | -   | `{ "firstName": "Edu","lastName": "Gutierrez", "email": "Edu14@gmail.com", "age": 31,"password": "123457904", "role": "user"}` |
-| `/login`    | POST     | Loguear usuario registrado             | -   | `{"email": "Edu14@gmail.com","password": "123457904"}`                                              |
+| `/login`    | POST     | Loguear usuario registrado. Las credenciales se almacenan en cookies.             | -   | `{"email": "Edu14@gmail.com","password": "123457904"}`                                              |
 
 
 ### `/api/products`
