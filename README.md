@@ -16,7 +16,7 @@
 
 ## Uso📌
 
-A continuación se listan los endpoint correspondientes, junto con una breve descripción, y en caso de corresponder, un ejemplo del body que reciben. También se indica en la columna "Auth", si la ruta debe ser authorizada por JWT antes de llegar al controlador.
+A continuación se listan los endpoint correspondientes, junto con una breve descripción, y en caso de corresponder, un ejemplo del body que reciben. También se indica en la columna Role que si el usuario debe ser user o admin para ejecutar determinadas acciones.
 
 > Nota: Para probar la aplicación con POSTMAN, se debe comentar la línea que habilita el acceso mediante CORS
 
@@ -34,18 +34,25 @@ A continuación se listan los endpoint correspondientes, junto con una breve des
 | -------- | -------- | ----------------------------- | ---- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | `/`      | GET      | Obtener todos los productos   | -   | -                                                                                                                                                                                                       |
 | `/:pid`   | GET      | Obtener un producto por su Id | -   | -                                                                                                                                                                                                       |
-| `/`      | POST     | Guardar un producto           | "admin"   | `{"title": "Producto 7","description": "Este es otro producto mas","price": 570,"thumbnail":[],"code": "ASDF1245","stock": 42,"category":Electrónica"}` |
-| `/:pid`   | PUT      | Actualizar un producto        | "admin"  | `{ "price": 389 }`                                                                                                                                                                                      |
-| `/:pid`   | DELETE   | Eliminar un producto          | "admin"  | -                                                                                                                                                                                                       |
+| `/`      | POST     | Guardar un producto           | admin   | `{"title": "Producto 7","description": "Este es otro producto mas","price": 570,"thumbnail":[],"code": "ASDF1245","stock": 42,"category":Electrónica"}` |
+| `/:pid`   | PUT      | Actualizar un producto        | admin  | `{ "price": 389 }`                                                                                                                                                                                      |
+| `/:pid`   | DELETE   | Eliminar un producto          | admin  | -                                                                                                                                                                                                       |
 
 ### `/api/cart`
 
 | Endpoint              | Http Req | Description                                | Role| Body                                                   |
 | --------------------- | -------- | ------------------------------------------ | ---- | ------------------------------------------------------ |
-| `/create/:userId`     | GET      | Crear un carrito                           | Sí   | -                                                      |
-| `/:userId`            | GET      | Obtener carrito de un usuario              | Sí   | -                                                      |
-| `/remove/:userId`     | PUT      | Eliminar todos los productos de un carrito | Sí   | -                                                      |
-| `/:userId`            | PUT      | Agregar un producto al carrito             | Sí   | `{ "_id": "644ca048b68b415727b1fc2e", "quantity": 1 }` |
-| `/:userId/:productId` | PUT      | Actualizar o remover un producto           | Sí   | `{ "quantity": 3 }`                                    |
-| `/:userId`            | DELETE   | Eliminar el carrito                        | Sí   | -                                                      |
+| `/`     | POST      | Crear un carrito                           | -   | -                                                      |
+| `/:cid`            | GET      | Obtener un carrito              | -   | -                                                      |
+| `/:cid/product/:pid`     | POST      | Agregar un producto al carrito | user   | -                                                      |
+| `/:cid/product/:pid`     | DELETE      | ELimina un producto al carrito | user   | -                                                      |
+| `/:cid/product/:pid`     | PUT      | Modifica la cantidad de un producto en el carrito | user   | { "quantity": 100 }                                                      |
+| `/:cid`     | DELETE      | Elimina todo el carrito | user   | { "quantity": 100 }                                                      |
+| `//:cid/purchase`     | POST      | Ejecuta la compra de un carrito | user   |                                                       |
 
+
+### `/api/sessions`
+
+| Endpoint              | Http Req | Description                                | Role| Body                                                   |
+| --------------------- | -------- | ------------------------------------------ | ---- | ------------------------------------------------------ |
+| `/current`     |    GET   | Recibe el token del usuario logueado                | -   | -                                                      |
